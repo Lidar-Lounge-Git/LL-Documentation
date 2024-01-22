@@ -14,12 +14,15 @@ This will begin the shut down Process. This can take sometime (mins) as it has t
 ### Main Pull Loop
 
 **Overview**
+--------
 In a continous loop , The server looks in the **MongoDB**  For any **Monday** boards to pull data from. It downloads all the Item {object}'s, &  sanitizes the data. It then determins if any can be Automated (or why they cant e.g columns not correctly marked 'Done'). It then loops through the stantized data that can be automated and tries to write **CLI** for them. If it hits an error at any stage (i.e cant find the RC file) it notifys monday and sets the item to Error. It Caches this Data in **MongoDB**, replacing the data from the previous pull.
 
 **Data Sanitation**
+--------
 This process, we create a new Item{} with only the data we need, an items columns data & the id of each column (for updating monday). We also add its modified priority and run initial checks to look for formatting errors (i.e no date)
 
 **Time Locks**  
+--------
  Every Time an Cached Item is updated on **MongoDb** we save the Time edited. Since the pull and CLI building of a board can take time (Monday is slow). When its time to replace the old Cached items, the 'new' pulled data might no longer be accurate, as Monday was update during its pull/processing. So we comare the time we started to pull the data to the last edit. If the 'new' data is out of data we do not cache it.
 
 **notes!**
@@ -27,6 +30,7 @@ This process, we create a new Item{} with only the data we need, an items column
  - All cached Items are deleated when the server is Started, 
  
  ### Tasks/Queue System
+--------
 Due to the asynchronicity of multiple agents. There is a Qeue system built into the server to ensure Items are not sent to multiple agents.
 
 This is set up like a ***deli-counter ticket system***
