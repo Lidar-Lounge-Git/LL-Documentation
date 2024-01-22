@@ -1,13 +1,10 @@
-Welcome to Lumache's documentation!
+Welcome to LidarLounges's documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+This is the Documentation of internal systems and prcesses
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`Automation Server` section for further fun , including
+how to :ref:`ime Lock` the project.
 
 .. note::
 
@@ -19,4 +16,5 @@ Contents
 .. toctree::
 
    usage
-   api
+   API
+
