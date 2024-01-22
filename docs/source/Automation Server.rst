@@ -1,4 +1,5 @@
-# Automation Server
+Automation Server
+===================================
 ## Overview
 
 ### Controls
@@ -45,11 +46,11 @@ if the Task is never collected (30 seconds timeout) the task is delated and the 
 
 
 ### Design Priciples
-1) Monday holds the Ground truths, when making changes, it always updates Monday and waits to download that data. This is slower (mainly for UI responsivness)  but much more reliable.
+1. Monday holds the Ground truths, when making changes, it always updates Monday and waits to download that data. This is slower (mainly for UI responsivness)  but much more reliable.
 1.1 Errors break this rule, but this since this doesn't 
-2) The Agents and the GUI do no processing data of themselves, the server handles all the 'buisness logic' (Apart from sorting the 'lightpass', the agent does this before Tiffing as it would slow the server down to handel this)
-3) The Agent has no idea about whats its settings are, apart from what Programs it has found installed [Tiffer/RC/Marmoset] or any idea about what its doing, it just runs CLI in subprocess and reports back when they have closed.
-4) The Gui can be run in multiple instaces from any machne simulatinously. 
+2. The Agents and the GUI do no processing data of themselves, the server handles all the 'buisness logic' (Apart from sorting the 'lightpass', the agent does this before Tiffing as it would slow the server down to handel this)
+3. The Agent has no idea about whats its settings are, apart from what Programs it has found installed [Tiffer/RC/Marmoset] or any idea about what its doing, it just runs CLI in subprocess and reports back when they have closed.
+4. The Gui can be run in multiple instaces from any machne simulatinously. 
 
 ```mermaid
 graph LR
